@@ -1,0 +1,19 @@
+builder:
+  build:
+    dockerfile_path: Dockerfile.build
+  cached: true
+  volumes_from:
+    - data_build
+app:
+  build:
+    image: quay.io/ghostmonitor/minikube
+    dockerfile_path: Dockerfile
+    encrypted_dockercfg_path: dockercfg.encrypted
+  cached: true
+  volumes_from:
+    - data_build
+data_build:
+  image: busybox
+  cached: false
+  volumes:
+    - .build:/out/

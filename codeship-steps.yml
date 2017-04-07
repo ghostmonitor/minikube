@@ -1,0 +1,28 @@
+- type: parallel
+  steps:
+  - type: serial
+    steps:
+      - service: builder
+        command: sh -c "make out/localkube && cp -Rp out/localkube /out/localkube"
+      - service: app
+        tag: master
+        command: echo #TRIGGERING-BUILD
+  # - type: parallel
+  #   steps:
+  #    - service: builder
+  #      command: sh -c "make test"
+- service: app
+  type: push
+  tag: master
+  image_tag: latest
+  image_name: quay.io/ghostmonitor/minikube
+  registry: quay.io
+  encrypted_dockercfg_path: dockercfg.encrypted
+- service: app
+  type: push
+  tag: ^(master|staging)
+  image_tag: "{{ .CommitID }}"
+  image_name: quay.io/ghostmonitor/minikube
+  registry: quay.io
+  encrypted_dockercfg_path: dockercfg.encrypted
+
