@@ -1,6 +1,8 @@
 builder:
   build:
     dockerfile_path: Dockerfile.build
+  environment:
+    - TAG=v1.5.3
   cached: true
   volumes_from:
     - data_build
