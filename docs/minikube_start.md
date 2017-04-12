@@ -19,6 +19,7 @@ minikube start
       --container-runtime string        The container runtime to be used
       --cpus int                        Number of CPUs allocated to the minikube VM (default 2)
       --disk-size string                Disk size allocated to the minikube VM (format: <number>[<unit>], where unit = b, k, m or g) (default "20g")
+      --dns-domain string               The cluster dns domain name used in the kubernetes cluster
       --docker-env stringArray          Environment variables to pass to the Docker daemon. (format: key=value)
       --docker-opt stringArray          Specify arbitrary flags to pass to the Docker daemon. (format: key=value)
       --extra-config ExtraOption        A set of key=value pairs that describe configuration that may be passed to different components.
@@ -28,7 +29,7 @@ minikube start
       --host-only-cidr string           The CIDR to be used for the minikube VM (only supported with Virtualbox driver) (default "192.168.99.1/24")
       --hyperv-virtual-switch string    The hyperv virtual switch name. Defaults to first found. (only supported with HyperV driver)
       --insecure-registry stringSlice   Insecure Docker registries to pass to the Docker daemon
-      --iso-url string                  Location of the minikube iso (default "https://storage.googleapis.com/minikube/iso/minikube-v1.0.7.iso")
+      --iso-url string                  Location of the minikube iso (default "https://storage.googleapis.com/minikube/iso/minikube-v0.18.0.iso")
       --keep-context                    This will keep the existing kubectl context and will create a minikube context.
       --kubernetes-version string       The kubernetes version that the minikube VM will use (ex: v1.2.3) 
  OR a URI which contains a localkube binary (ex: https://storage.googleapis.com/minikube/k8sReleases/v1.3.0/localkube-linux-amd64) (default "v1.6.0")

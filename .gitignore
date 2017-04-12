@@ -41,3 +41,4 @@ deploy/iso/minikube-iso/board/coreos/minikube/rootfs-overlay/etc/VERSION
 !.build/.keep
 dockercfg
 codeship.aes
+/.vscode

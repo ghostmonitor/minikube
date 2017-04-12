@@ -3,6 +3,7 @@ builder:
     dockerfile_path: Dockerfile.build
   environment:
     - TAG=v1.5.3
+    - IN_DOCKER=1
   cached: true
   volumes_from:
     - data_build
