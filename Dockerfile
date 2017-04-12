@@ -24,7 +24,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
     conntrack \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get autoremove -y \
-    && DEBIAN_FRONTEND=noninteractive apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && DEBIAN_FRONTEND=noninteractive apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    echo 127.0.0.1 ${HOSTNAME} >> /etc/hosts
 
 # Copy over important files
 COPY ./.build/localkube /
